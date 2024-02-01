@@ -5,7 +5,7 @@ export default class GenieActivityFeed extends LightningElement {
 
   @api recordId;
   @track activities = [
-    {label: 'Page Visit', action: 'Home Page', icon: 'standard:account', time: '10:00:54 am'},
+    {label: 'Page Visit', action: 'Home Page', icon: 'standard:contact', time: '10:00:54 am'},
     {label: 'Product View', action: 'Product: Laptop XYZ', icon: 'standard:product_item', time: '3 days ago'},
     {label: 'Add to Cart', action: 'Product: Laptop XYZ', icon: 'standard:cart', time: '3 days ago'},
     {label: 'Email Opened', action: 'Promotional Email: Exclusive Discounts', icon: 'standard:email', time: '1 week ago'},
