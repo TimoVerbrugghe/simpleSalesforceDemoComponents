@@ -1,0 +1,48 @@
+<template>
+    <lightning-card title="Activity Feed">
+        <div class={loadingClass} slot="actions">
+            <div class="slds-icon-eq__bar"></div>
+            <div class="slds-icon-eq__bar"></div>
+            <div class="slds-icon-eq__bar"></div>
+        </div>
+        <div class="slds-grid slds-wrap slds-p-around_medium">
+            <div class="slds-size_1-of-1">
+                <div class="slds-grid slds-wrap">
+                    <template for:each={activities} for:item="item" for:index="i">
+                        <div key={item.i} class="slds-size_1-of-1 slds-p-bottom_medium">
+                            <lightning-layout vertical-align="stretch">
+                                <lightning-layout-item size="1">
+                                    <div class="slds-grid slds-wrap full-height">
+                                        <div class="slds-size_1-of-1">
+                                            <lightning-icon icon-name={item.icon} size="small"></lightning-icon>
+                                        </div>
+                                        <div class="three-quarter-height slds-icon_small">
+                                            <div class="activity-line slds-p-top_x-small"></div>
+                                        </div>
+                                    </div>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="9">
+                                    <div class="slds-p-left_x-small">
+                                        <div class="slds-text-body_regular"><strong>{item.label}</strong></div>
+                                        <!-- <div class="slds-text-body_regular">Action that prompted:</div> -->
+                                        <div class="slds-text-body_regular">{item.action}</div>
+                                    </div>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="2">
+                                    <p class="slds-text-color_weak">{item.time}</p>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+        <div slot="footer">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-size_1-of-1">
+                    <a class="slds-text-align_center">View All</a>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,15 @@
+.activity-line{
+    width: 2px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.16);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.full-height{
+    height:100%;
+}
+
+.three-quarter-height{
+    height:75%;
+}

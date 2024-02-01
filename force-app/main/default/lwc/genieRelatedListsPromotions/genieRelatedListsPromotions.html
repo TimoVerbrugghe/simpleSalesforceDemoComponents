@@ -1,0 +1,109 @@
+<template>
+    <template for:each={items} for:item="item" for:index="i">
+        <div key={item.i} class="listWrapper slds-p-bottom_small">
+            <article class="slds-card slds-card_boundary">
+                <div class="slds-page-header slds-page-header_joined slds-page-header_bleed slds-shrink-none test-headerRegion slds-is-relative slds-page-header-no-border" style="border-bottom: 1px solid rgb(201, 201, 201)">
+                    <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                        <div class="slds-col slds-has-flexi-truncate firstHeaderRow">
+                            <div class="slds-media slds-no-space slds-grow">
+                                <span
+                                    class="record-avatar-container slds-avatar slds-avatar_small icon slds-m-right_small">
+                                    <lightning-icon icon-name={item.icon} size="small"></lightning-icon>
+                                </span>
+                                <div class="slds-media__body slds-align-middle">
+                                    <h2 class="slds-card__header-title">
+                                        <a class="slds-card__header-link baseCard__header-title-container" href="#">
+                                            <span class="slds-truncate slds-m-right--xx-small">{item.label}</span>
+                                            <span class="lds-shrink-none slds-m-right--xx-small">({item.number})</span>
+                                        </a>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="slds-col slds-no-flex slds-grid slds-align-bottom">
+                                <div class="slds-m-left_xx-small simpleEmptyState"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="actionsWrapper">
+                                <ul
+                                    class="branding-actions slds-button-group slds-m-left--xx-small small oneActionsRibbon forceActionsContainer">
+                                    <li class="slds-button slds-button--neutral">
+                                        <a href="javascript:void(0);" class="forceActionLink" role="button">
+                                            <div>New</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <template lwc:if={item.headers}>
+                    <div class="slds-grid listDisplays">
+                        <div class="slds-grid slds-border__left slds-border__right listViewContainer" style="width: 100%">
+                            <table class="slds-table slds-table_bordered slds-table_edit" style="width: 100%" role="grid" aria-label="Opportunities" data-num-rows="1" data-num-selected-rows="0" data-last-rendered-row="1">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <template for:each={item.headers} for:item="header" for:index="c">
+                                            <th key={header.c} scope="col">
+                                                <span class="slds-th__action">
+                                                    <span class="slds-truncate">{header}</span>
+                                                </span>
+                                            </th>
+                                        </template>
+                                        <th scope="col" style="width:50px">
+                                            <div class="slds-cell-fixed" style="width: 50px;outline:none;">
+                                                <span class="slds-th__action">
+                                                    <span class="slds-truncate" title="Action"></span>
+                                                </span>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={item.rows} for:item="row" for:index="r">
+                                        <tr key={row.r}>
+                                            <template iterator:col={row}>
+                                                <td key={col.value}>
+                                                    <template lwc:if={col.first}>
+                                                        <div class="outputLookupContainer forceOutputLookupWithPreview">
+                                                            <a href="javascript:void(0);" class="textUnderline outputLookupLink slds-truncate forceOutputLookup">{col.value}</a>
+                                                        </div>
+                                                    </template>
+                                                    <template lwc:else>
+                                                        <span class="slds-truncate">{col.value}</span>
+                                                    </template>
+                                                </td>
+                                            </template>
+                                            <td>
+                                                <div class="forceVirtualActionMarker forceVirtualAction">
+                                                    <a role="button" class="rowActionsPlaceHolder slds-button slds-button--icon-x-small slds-button--icon-border-filled keyboardMode--trigger" href="javascript:void(0);">
+                                                        <span class="slds-icon_container slds-icon-utility-down">
+                                                            <span>
+                                                                <svg class="slds-icon slds-icon-text-default slds-icon_xx-small" focusable="false">
+                                                                    <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg?cache=9.40.4#down"></use>
+                                                                </svg>
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </td>                                                    
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <a href="javascript:void(0);">
+                        <div class="slds-card__footer">
+                            <span class="view-all-label">View All</span>
+                        </div>
+                    </a>
+                </template>
+            </article>
+        </div>
+    </template>
+</template>
